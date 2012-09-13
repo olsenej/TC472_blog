@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Blog</title>
+</head>
+<body>
+<h1>Blog</h1>
+Title: {{ blog.title }} <br>
+Author: {{ blog.author }} <br>
+Date: {{ blog.created }} <br> 
+Post: {{ blog.body }} <br> 
+Image: <img src=/images/{{blog.image}}><br>
+Comment:<br>
+{% for comment in blog.comment_set.select_related %}
+{{ comment.name }}: {{ comment.tweet }} (<a href=/delComment/{{comment.id}}>delete</a>)<br>
+{% endfor %}
+<a href=/comment/{{blog.id}}>comment</a>
+
+</body>
+</html>

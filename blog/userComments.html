@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>Blog</title>
+</head>
+<body>
+{% if userBlogs %}
+<ul>
+{% for comment in userBlogs %}
+  <li>From <a href="/blog/{{ comment.blog.id }}">{{ comment.blog.title }} </a><br>
+  {{ comment.tweet }}
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+<p> No comment entries </p>
+{% endif %}
+</body>
+</html>
